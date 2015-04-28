@@ -1,0 +1,32 @@
+; Packaging information for ubm_enso_profile
+name = "UBM Enso profile"
+description = "base profile builder for UBM Enso"
+core = "7.x"
+; ----------
+; Dependencies
+; ----------
+; Administration
+dependencies[] = admin_menu
+dependencies[] = admin_menu_toolbar
+; Chaos tool suite
+dependencies[] = ctools
+dependencies[] = page_manager
+; Core
+dependencies[] = block
+dependencies[] = dblog
+dependencies[] = field
+dependencies[] = field_sql_storage
+dependencies[] = filter
+dependencies[] = node
+dependencies[] = system
+dependencies[] = text
+dependencies[] = user
+; Development
+dependencies[] = profiler_builder
+dependencies[] = profiler_builder_extras
+; Views
+dependencies[] = views
+dependencies[] = views_ui
+; Features
+dependencies[] = features
+

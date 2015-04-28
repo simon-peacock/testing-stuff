@@ -4,8 +4,8 @@
  *
  * Perform actions to set up the site for this profile.
  */
-function enso_profile_install() {
-  // Enable some test_drupal_project_ubm blocks.
+function ubm_enso_profile_install() {
+  // Enable some ubm_enso_profile blocks.
   $default_theme = 'bartik';
   $admin_theme = 'seven';
   // disable all themes
@@ -90,18 +90,7 @@ function enso_profile_install() {
     $query->values($block);
   }
   $query->execute();
-  
-  // From shortcut.install, add shortcuts to the default set on install
-  $shortcut_set = shortcut_set_load(SHORTCUT_DEFAULT_SET_NAME);
-  $shortcut_set->links = NULL;
-  $shortcut_set->links = array(
-    array(
-      'link_path' => 'admin/appearance/settings',
-      'link_title' => st('Theme'),
-      'weight' => -17,
-    ),
-  );
-  shortcut_set_save($shortcut_set);// Create a default role for site administrators, with all available permissions assigned.
+  // Create a default role for site administrators, with all available permissions assigned.
   $admin_role = new stdClass();
   $admin_role->name = 'administrator';
   $admin_role->weight = 10;
