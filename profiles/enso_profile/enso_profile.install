@@ -4,7 +4,7 @@
  *
  * Perform actions to set up the site for this profile.
  */
-function test_drupal_project_ubm_install() {
+function enso_profile_install() {
   // Enable some test_drupal_project_ubm blocks.
   $default_theme = 'bartik';
   $admin_theme = 'seven';

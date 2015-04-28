@@ -1,6 +1,6 @@
-; Packaging information for test_drupal_project_ubm
-name = "test_drupal_project_ubm"
-description = "a test profile"
+; Packaging information for enso profile
+name = "Enso profile"
+description = "Base profile"
 core = "7.x"
 ; ----------
 ; Dependencies
@@ -65,8 +65,6 @@ dependencies[] = libraries
 dependencies[] = session_api
 ; Rules
 dependencies[] = rules
-; UBM
-dependencies[] = ubm_customise_entity_forms
 ; Views
 dependencies[] = views
 ; Features

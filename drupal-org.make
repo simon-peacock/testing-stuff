@@ -58,8 +58,6 @@ projects[session_api][subdir] = "contrib"
 projects[rules][version] = "2.9"
 projects[rules][subdir] = "contrib"
 
-;projects[ubm_customise_entity_forms][version] = "1.0"
-;projects[ubm_customise_entity_forms][subdir] = "contrib"
-
 projects[views][version] = "3.10"
 projects[views][subdir] = "contrib"
+
