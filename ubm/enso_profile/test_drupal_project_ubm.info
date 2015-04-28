@@ -1,0 +1,75 @@
+; Packaging information for test_drupal_project_ubm
+name = "test_drupal_project_ubm"
+description = "a test profile"
+core = "7.x"
+; ----------
+; Dependencies
+; ----------
+; Administration
+dependencies[] = admin_menu
+dependencies[] = admin_menu_toolbar
+; Chaos tool suite
+dependencies[] = ctools
+; Clientside Validation
+dependencies[] = clientside_validation
+dependencies[] = clientside_validation_form
+; Core
+dependencies[] = block
+dependencies[] = color
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = dblog
+dependencies[] = field
+dependencies[] = field_sql_storage
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = filter
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = node
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = rdf
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = system
+dependencies[] = taxonomy
+dependencies[] = text
+dependencies[] = user
+; Development
+dependencies[] = devel
+dependencies[] = profiler_builder
+dependencies[] = profiler_builder_extras
+; Entityforms
+dependencies[] = entityform
+dependencies[] = entityform_anonymous
+dependencies[] = entityform_block
+dependencies[] = entityform_notifications
+; Fields
+dependencies[] = email
+dependencies[] = maxlength
+; Form Elements
+dependencies[] = values
+; Location
+dependencies[] = ip2country
+; Other
+dependencies[] = entity
+dependencies[] = entity2text
+dependencies[] = entity_rules
+dependencies[] = entity_token
+dependencies[] = libraries
+dependencies[] = session_api
+; Rules
+dependencies[] = rules
+; UBM
+dependencies[] = ubm_customise_entity_forms
+; Views
+dependencies[] = views
+; Features
+dependencies[] = features
+
+
