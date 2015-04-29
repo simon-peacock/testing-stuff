@@ -35,10 +35,13 @@ xmlrpc.php
 /themes
 
 
-#ignore the drupal defualt profiles
+#ignore the drupal default profiles
 /profiles/minimal
 /profiles/standard
 /profiles/testing
+
+#ignore the site settings and uploaded files
+/sites/all/default
 
 #ignore the contrib modules
 /sites/all/modules/contrib
