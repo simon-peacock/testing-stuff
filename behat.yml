@@ -1,0 +1,14 @@
+default:
+  formatter:
+    name: pretty,junit
+    parameters:
+      output_path: ,/var/lib/jenkins/jobs/drupal-template/workspace/build/tests
+  paths:
+    features: 'features'
+  extensions:
+    Behat\MinkExtension\Extension:
+      goutte: ~
+      selenium2: ~
+      base_url: 'http://localhost/workspaces/drupal-test'
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~

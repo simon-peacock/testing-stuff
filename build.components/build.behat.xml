@@ -1,0 +1,19 @@
+<project name="phing-drupal" default="build">
+  <!-- ### Run Behat tests
+
+Execution of this target can be skipped by setting the
+ `project.behat.skip` property from the command line or in other targets.
+-->
+  <target name="behat">
+    <echo>Creating behat.yml file.</echo>
+    <copy file="behat.yml.default" tofile="behat.yml" overwrite="true">
+      <filterchain>
+        <expandproperties />
+      </filterchain>
+    </copy>
+
+    <echo>Running tests.</echo>
+    <exec command="behat" passthru="true"></exec>
+
+  </target>
+</project>

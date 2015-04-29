@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="phing-drupal" default="build" phingVersion="2.4.11">
+
+  <!-- ## Main targets -->
+
+  <!-- ### Build project
+  Do a complete build of the project by verifying code consistency and and
+  performing static analysis of the code.
+  This is the default build target.
+  Do not run `docs` for now. Generating documentation eats up memory and build
+  time and is largely obsolete when using GitHub. Add "docs" to depends, and
+  include build.documentation.xml for documentation generation -->
+  <target name="build" depends="init,
+                                clean,
+                                verify,
+                                analyze" />
+
+  <!-- ### Verify code consistency
+  Make sure that our code is clean and functional. -->
+  <target name="verify" depends="init,
+                                 clean,
+                                 lint-php-custom,
+                                 lint-js-custom,
+                                 lint-css-custom,
+                                 check-php-debug,
+                                 check-js-debug,
+                                 simpletest,
+                                 behat"/>
+
+  <!-- ### Analyze code
+  Perform static analysis of the code to generate statistics, identify potential
+  problems and opportunities for refactorings and make sure that the code
+  complies with coding standards. -->
+  <target name="analyze" depends="init,
+                                  clean,
+                                  phploc,
+                                  phpmd,
+                                  phpcpd">
+    <!-- Moved inside target to support properties in target name -->
+    <phingcall target="coder-review-d${drupal.version}">
+      <!-- Run the target as if it was executed from the Drupal root
+           directory. -->
+      <property name="project.basedir" value="${project.drupal.dir}"/>
+      <!-- We already have a clean environment so avoid further cleaning. -->
+      <property name="project.cleaned" value="1"/>
+      <!-- Make will run again as a part of the `init` target. We already have
+           a working site so skip that. -->
+      <property name="project.make.skip" value="1"/>
+    </phingcall>
+  </target>
+
+  <!-- ### Generate documentation -->
+  <import file="${phing.dir}/build.components/build.documentation.xml" />
+
+  <!-- ## Individual targets
+  These targets can be executed individually or grouped unless explicitly
+  stated as a part of the task.
+  **As a rule targets without descriptions should not be executed directly.** -->
+
+  <!-- ### PHP, CSS, JS linting -->
+  <import file="${phing.dir}/build.components/build.php_js_css_lint.xml" />
+
+  <!-- ### PHP, JS Debug code detection -->
+  <import file="${phing.dir}/build.components/build.debug_php_js.xml" />
+
+  <!-- ### Detect code mess -->
+  <import file="${phing.dir}/build.components/build.phpmd.xml" />
+
+  <!-- ### Detect potential copy/pasting -->
+  <import file="${phing.dir}/build.components/build.phpcpd.xml" />
+
+  <!-- ### Generate code statistics -->
+  <import file="${phing.dir}/build.components/build.phploc.xml" />
+
+  <!-- ### Drupal Coder review -->
+  <import file="${phing.dir}/build.components/build.drupal_coder_review.xml" />
+
+
+  <!-- ### Review code using PHP_CodeSniffer -->
+  <import file="${phing.dir}/build.components/build.php_codesniffer.xml" />
+
+  <!-- ### Run simpletests -->
+  <import file="${phing.dir}/build.components/build.simpletest.xml" />
+
+  <!-- ### Run behat tests -->
+  <import file="${phing.dir}/build.components/build.behat.xml" />
+
+  <!-- ## Helper targets
+  These targets are used throughout the project and should normally not be
+  executed directly.-->
+
+  <!-- ### Initialization
+  This target sets up many of the common resources used throughout the build.
+  All other targets except dependencies for this target should depend on this
+  unless specifically stated why. -->
+  <target name="init"
+          depends="load-properties, setup-dirs, make, setup-filesets"
+          unless="project.initialized">
+    <!-- Set property to prevent target from being executed multiple times -->
+    <property name="project.initialized" value="true"/>
+  </target>
+
+  <!-- ### Load properties -->
+  <import file="${phing.dir}/build.components/build.load_properties.xml" />
+
+  <!-- ### Setup directories -->
+  <import file="${phing.dir}/build.components/build.setup_dirs.xml" />
+
+  <!-- ### Drush Make -->
+  <import file="${phing.dir}/build.components/build.make.xml" />
+
+  <!-- ### Setup file sets -->
+  <import file="${phing.dir}/build.components/build.setup_filesets.xml" />
+
+  <!-- ### Clean working environment  -->
+  <import file="${phing.dir}/build.components/build.clean.xml" />
+
+  <!-- ### Install a Drupal site -->
+  <import file="${phing.dir}/build.components/build.drupal_site_install.xml" />
+
+  <!-- ### Download and enable a project/module -->
+  <import file="${phing.dir}/build.components/build.drupal_module_enable.xml" />
+
+  <!-- HELPER TARGETS - clone a git repo, apply a patch, used by numerous targets-->
+  <import file="${phing.dir}/build.components/build.helper_targets.xml" />
+
+  <!-- ### Setup Phing Drush integration -->
+  <import file="${phing.dir}/build.components/build.setup_phing_drush.xml" />
+
+  <!-- ### Build documentation using Phrocco - appears to be a dead link??-->
+  <import file="${phing.dir}/build.components/build.phrocco.xml" />
+
+</project>

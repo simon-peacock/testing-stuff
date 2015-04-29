@@ -1,0 +1,14 @@
+default:
+  formatter:
+    name: pretty,junit
+    parameters:
+      output_path: ,${project.testdir}
+  paths:
+    features: 'features'
+  extensions:
+    Behat\MinkExtension\Extension:
+      goutte: ~
+      selenium2: ~
+      base_url: '${drupal.uri}'
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
