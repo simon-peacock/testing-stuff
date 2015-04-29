@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MasterDependency.Unit test that always passes"><testcase name="testThatAlwaysPasses()"><system-out>pass:      [Other] Value true is TRUE. [master_dependency.test:30]
-</system-out></testcase></testsuite>
