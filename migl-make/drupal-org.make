@@ -19,3 +19,12 @@ projects[features][subdir] = "contrib"
 projects[views][version] = "3.10"
 projects[views][subdir] = "contrib"
 
+
+; -------------------------------------
+; CUSTOM
+; -------------------------------------
+projects[master_dependency][type] = module
+projects[master_dependency][download][type] = git
+projects[master_dependency][download][url] = "https://github.com/miggle/master_dependency.git"
+projects[master_dependency][subdir] = custom
+
