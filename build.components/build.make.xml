@@ -19,7 +19,7 @@ called from `init` target. -->
       </or>
       <then>
         <!-- Delete any prexisting builds -->
-        <delete dir="${project.drupal.dir}"/>
+       <!-- <delete dir="${project.drupal.dir}"/> -->
 
         <!-- If the make file does not include a core Drupal project we need
              to download one separately. This should be defined in
