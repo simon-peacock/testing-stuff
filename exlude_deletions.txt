@@ -1,1 +1,1 @@
-/docroot/sites/all/foobar
+/docroot/sites/default/foobar
