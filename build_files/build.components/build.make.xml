@@ -18,6 +18,7 @@ called from `init` target. -->
         <not><istrue value="${project.make.skip}"/></not>
       </or>
       <then>
+        <!-- AS WE ARE USING THE PROFILE BUILDER WE DO NOT WAN TO DELETE PREVIOUS BUILDS -->
         <!-- Delete any prexisting builds -->
        <!-- <delete dir="${project.drupal.dir}"/> -->
 
@@ -30,6 +31,7 @@ called from `init` target. -->
             <istrue value="${drupal.make.nocore}"/>
           </and>
           <then>
+            <!-- WE ALSO DO NOT WANT TO DOWN LOAD DRUPAL CORE AS THIS HAS ALREADY HAPPENED IN THE JENKINS BUILD -->
             <!-- Download the appropriate version of Drupal -->
            <!-- <drush command="dl" assume="yes">
               <param>drupal-${drupal.version}</param>
