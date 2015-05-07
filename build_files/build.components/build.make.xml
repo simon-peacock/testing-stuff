@@ -31,7 +31,7 @@ called from `init` target. -->
           </and>
           <then>
             <!-- Download the appropriate version of Drupal -->
-            <drush command="dl" assume="yes">
+            <drush command="up" assume="yes">
               <param>drupal-${drupal.version}</param>
               <option name="drupal-project-rename">${drupal.make.dir}</option>
             </drush>
