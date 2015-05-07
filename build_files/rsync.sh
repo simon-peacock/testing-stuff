@@ -1,5 +1,5 @@
 #!/bin/bash
- rsync -avrh --progress --delete --exclude-from exlude_deletions.txt --filter='P /docroot/sites/default/foobar/**/*' -e  "ssh" /var/lib/jenkins/jobs/UBM-enso-UAT-new-final/workspace/docroot/ jenkins@gbuweb04-int.aws.ubm-net.com:/home/jenkins/docroot/
+ rsync -avrh --progress --delete --exclude-from exlude_deletions.txt --filter='P /docroot/sites/default/foobar/**/*' -e  "ssh" /var/lib/jenkins/jobs/UBM-enso-UAT-new-final/workspace/docroot/ jenkins@gbuweb04-int.aws.ubm-net.com:/var/www/html/enso
 if test $? -eq 0 
 then
 #rm -rf *
