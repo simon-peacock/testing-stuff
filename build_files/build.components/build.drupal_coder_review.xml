@@ -74,8 +74,10 @@ No need to run `init` here. This target should only be called from parent
 
     <!-- Cleanup the custom code property. Commas and multiple whitespace
          characters are reduced to a single space. -->
+    <!-- THIS NEEDS TO BE TURNED BACK ON WHEN CUSTOM MODULES ARE ADDED  
     <php expression="preg_replace('/(\s+|\s*,\s*)/', ' ', '${project.code.custom}')"
          returnProperty="project.code.custom"/>
+         -->
 
     <!-- Execute coder review and output results in XML format-->
     <drush command="${coder.review.command}" assume="yes"
