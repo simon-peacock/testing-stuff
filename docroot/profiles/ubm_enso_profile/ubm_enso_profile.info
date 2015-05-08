@@ -1,6 +1,7 @@
 ; Packaging information for ubm_enso_profile
 name = "UBM Enso profile"
-description = "base profile builder for UBM Enso"
+description = ""
+exclusive = "1"
 core = "7.x"
 ; ----------
 ; Dependencies
@@ -20,6 +21,7 @@ dependencies[] = filter
 dependencies[] = node
 dependencies[] = system
 dependencies[] = text
+dependencies[] = update
 dependencies[] = user
 ; Development
 dependencies[] = profiler_builder
