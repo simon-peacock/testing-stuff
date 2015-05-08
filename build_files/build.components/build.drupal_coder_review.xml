@@ -89,7 +89,9 @@ No need to run `init` here. This target should only be called from parent
       <!-- Review all the modules and themes matching the project prefix -->
       <param>${project.code.projects}</param>
       <!-- Review additional modules which do not match the prefix -->
+      <!-- THIS NEEDS TO BE TURNED BACK ON WHEN CUSTOM MODULES ARE ADDED 
       <param>${project.code.custom}</param>
+      -->
     </drush>
 
     <!-- Write XML output to file -->
